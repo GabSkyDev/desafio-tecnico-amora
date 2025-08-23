@@ -1,15 +1,16 @@
 
+import "reflect-metadata";
 import express from "express";
-import type { Request, Response } from 'express';
+import { AppDataSource } from "./repository/data-source";
+import userRoutes from "./routes/userRoutes";
 
 const app = express();
 app.use(express.json());
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('API de Imóveis sendo executado!');
-});
-
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+AppDataSource.initialize()
+    .then(() => {
+        console.log("Banco conectado!");
+        app.use("/api", userRoutes);
+        app.listen(3000, () => console.log("Server running on http://localhost:3000"));
+    })
+    .catch((error) => console.error("Erro ao conectar com o banco de dados", error));
