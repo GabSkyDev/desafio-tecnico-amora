@@ -1,16 +1,8 @@
 import { Request, Response } from "express";
 import { AppDataSource } from "../repository/data-source";
 import { Users } from "../models/Users";
-import { PropertyList } from "../models/PropertyList";
 
 const userRepository = AppDataSource.getRepository(Users);
-const propertyListRepository = AppDataSource.getRepository(PropertyList);
-
-export const createUser = async (req: Request, res: Response) => {
-    const user = userRepository.create(req.body);
-    const result = await userRepository.save(user);
-    res.status(201).json(result);
-};
 
 export const getUsers = async (req: Request, res: Response) => {
     const users = await userRepository.find();

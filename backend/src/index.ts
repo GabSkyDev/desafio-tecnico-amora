@@ -1,10 +1,14 @@
 import "reflect-metadata";
 import express from "express";
 import { AppDataSource } from "./repository/data-source";
+import dotenv from "dotenv";
 
 import userRoutes from "./routes/userRoutes";
 import propertyListRoutes from "./routes/propertyListRoutes";
 import propertiesRoutes from "./routes/propertiesRoutes";
+import authRoutes from "./routes/authRoutes";
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -12,6 +16,8 @@ app.use(express.json());
 AppDataSource.initialize()
     .then(() => {
         console.log("Banco conectado!");
+
+        app.use("/api", authRoutes);
 
         app.use("/api", userRoutes);
         app.use("/api", propertyListRoutes);
