@@ -1,0 +1,33 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+build/
+out/
+
+# Arquivos temporários
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Configurações de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache do TypeScript
+*.tsbuildinfo
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# IDEs e editores
+.vscode/
+.idea/
+*.iml
