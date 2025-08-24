@@ -1,6 +1,5 @@
 # Dependências
 node_modules/
-
 # Build
 dist/
 build/
@@ -31,3 +30,51 @@ Thumbs.db
 .vscode/
 .idea/
 *.iml
+
+# Testes e coverage
+coverage/
+*.lcov
+
+# Arquivos de lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Arquivos de backup e temporários
+*.bak
+*.orig
+*.rej
+
+# Windows
+ehthumbs.db
+Desktop.ini
+
+# MacOS
+.AppleDouble
+.LSOverride
+Icon?
+
+# Linux
+*~
+.directory
+
+# Outros
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+node_repl_history
+.env.*.local
+.sass-cache/
+.eslintcache
+.parcel-cache/
+.turbo/
+.next/
+.nuxt/
+.cache/
+.output/
+.firebase/
+.vercel/
+.netlify/
+.idea_modules/
+.history/
