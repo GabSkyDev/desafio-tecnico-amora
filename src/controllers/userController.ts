@@ -1,18 +1,20 @@
 import { Request, Response } from "express";
 import { AppDataSource } from "../repository/data-source";
 import { Users } from "../models/Users";
+import { PropertyList } from "../models/PropertyList";
 
 const userRepository = AppDataSource.getRepository(Users);
+const propertyListRepository = AppDataSource.getRepository(PropertyList);
 
 export const createUser = async (req: Request, res: Response) => {
     const user = userRepository.create(req.body);
     const result = await userRepository.save(user);
-    res.json(result);
+    res.status(201).json(result);
 };
 
 export const getUsers = async (req: Request, res: Response) => {
     const users = await userRepository.find();
-    res.json(users);
+    res.status(200).json(users);
 };
 
 export const getUserById = async (req: Request, res: Response) => {
@@ -23,7 +25,7 @@ export const getUserById = async (req: Request, res: Response) => {
     }
 
     const user = await userRepository.findOneBy({ id: idParam });
-    res.json(user);
+    res.status(200).json(user);
 };
 
 export const updateUser = async (req: Request, res: Response) => {
@@ -41,7 +43,7 @@ export const updateUser = async (req: Request, res: Response) => {
 
     userRepository.merge(user, req.body);
     const result = await userRepository.save(user);
-    res.json(result);
+    res.status(200).json(result);
 };
 
 export const deleteUser = async (req: Request, res: Response) => {
@@ -52,7 +54,9 @@ export const deleteUser = async (req: Request, res: Response) => {
     }
 
     const result = await userRepository.delete(idParam);
-    res.json(result);
+    res.status(200).json(result);
 };
+
+
 
 

@@ -1,6 +1,8 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { Users } from "../models/Users";
+import { PropertyList } from "../models/PropertyList";
+import { Properties } from "../models/Properties";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -11,5 +13,5 @@ export const AppDataSource = new DataSource({
     database: "api-imoveis-db",
     synchronize: true,
     logging: false,
-    entities: [Users]
+    entities: [Users, PropertyList, Properties]
 })

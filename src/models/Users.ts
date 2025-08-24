@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { PropertyList } from "./PropertyList";
 
 export enum Role {
     LEAD = 'lead',
@@ -25,4 +26,7 @@ export class Users {
         default: Role.LEAD
     })
     role!: Role;
+
+    @OneToMany(() => PropertyList, (propertyList) => propertyList.user)
+    propertyLists!: PropertyList[];
 }
