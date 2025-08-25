@@ -2,11 +2,9 @@ import { Request, Response } from "express";
 import { AppDataSource } from "../repository/data-source";
 import { Properties } from "../models/Properties";
 import { PropertyList } from "../models/PropertyList";
-import { Users } from "../models/Users";
 
 const propertiesRepository = AppDataSource.getRepository(Properties);
 const propListRepository = AppDataSource.getRepository(PropertyList);
-const userRepository = AppDataSource.getRepository(Users);
 
 export const createProperty = async (req: Request<{ userId: string, listId: string}>, res: Response) => {
     const { userId, listId } = req.params;
