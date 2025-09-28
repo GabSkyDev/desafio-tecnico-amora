@@ -1,12 +1,12 @@
-# Desafio Técnico aMORA
+# Property Match API
 
 ## Descrição
-MVP inicial do backend para o desafio técnico da aMORA.  
+MVP inicial do backend para startup que resolve problemas do mercado imobiliário.  
 O projeto tem como objetivo fornecer uma API para gerenciamento de imóveis, permitindo que usuários e corretores armazenem e acessem seus imóveis via endpoints REST.  
 Alguns endpoints possuem autenticação via JWT (incentivando registro posterior).
 
 ## Status do Projeto
-Alguns requisitos não foram implementados ou estão parcialmente concluídos.  
+Alguns requisitos finais ainda não foram implementados ou estão parcialmente concluídos.  
 A entrega prioriza apresentar a arquitetura, endpoints principais e um fluxo básico de autenticação.
 
 ## Stack Utilizada
